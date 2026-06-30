@@ -57,4 +57,33 @@ python -m pytest
 - Base URL: http://127.0.0.1:8000
 - Dokumentasi Swagger API: http://127.0.0.1:8000/docs
 
+---
+
+## Menjalankan dengan Docker
+
+Pastikan anda sudah menginstall docker dan docker compose di komputer anda.
+
+1. **Jalankan Container**
+   ```bash
+   docker compose up --build -d
+   ```
+
+2. **Akses Aplikasi**
+   - **Frontend:** [http://localhost](http://localhost) (Port 80)
+   - **Backend API:** [http://localhost:8000](http://localhost:8000)
+   - **Dokumentasi Swagger API:** [http://localhost:8000/docs](http://localhost:8000/docs)
+
+3. **Menjalankan Unit Test di Container**
+   Untuk menjalankan test suite backend di dalam container yang sedang berjalan:
+   ```bash
+   docker compose exec backend python -m pytest
+   ```
+
+4. **Menghentikan Aplikasi**
+   Untuk menghentikan dan menghapus container serta network yang dibuat oleh docker compose:
+   ```bash
+   docker compose down
+   ```
+
+### Menjalankan dengan Podman
 
