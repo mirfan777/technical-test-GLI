@@ -15,13 +15,19 @@ Aplikasi backend berbasis FastAPI dan SQLAlchemy.
 - Alembic
 - Pytest
 
-## Cara Menjalankan Proyek
+## Cara Menjalankan Proyek Backend 
 
 Sebelum memilih salah satu opsi di bawah, pastikan terminal sudah masuk ke folder backend:
 
 ```
 cd backend
 ```
+
+## Create enviroment file
+```bash
+cp .env.example .env
+```
+
 ### Install Requirements
 ```
 pip install -r requirments.txt
@@ -33,7 +39,7 @@ pip install -r requirments.txt
 python -m alembic upgrade head
 ```
 
-### 2. Membuat Migrasi Baru Refresh
+### 2. Membuat Migrasi Baru 
 ```bash
 python -m alembic revision --autogenerate -m "Deskripsi perubahan"
 ```
@@ -53,11 +59,35 @@ python -m uvicorn app.main:app --reload
 python -m pytest
 ```
 
-### Akses Aplikasi
+### Akses Aplikasi dengan port default 8000
 - Base URL: http://127.0.0.1:8000
 - Dokumentasi Swagger API: http://127.0.0.1:8000/docs
 
 ---
+
+## Cara Menjalankan Proyek Frontend
+
+Sebelum memilih salah satu opsi di bawah, pastikan terminal sudah masuk ke folder frontend:
+
+```
+cd frontend
+```
+
+### Install Requirements
+```
+npm install
+```
+
+### Jalankan Aplikasi Lokal
+```
+npm run dev
+```
+
+### Akses Aplikasi dengan port default 5173
+- Base URL: http://localhost:5173  
+
+---
+
 
 ## Menjalankan dengan Docker
 
@@ -85,5 +115,4 @@ Pastikan anda sudah menginstall docker dan docker compose di komputer anda.
    docker compose down
    ```
 
-### Menjalankan dengan Podman
 
