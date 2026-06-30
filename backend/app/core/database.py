@@ -1,4 +1,5 @@
-from sqlmodel import create_engine, SQLModel, Session
+from sqlalchemy import create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
 from app.core.config import settings
 
 engine = create_engine(
@@ -6,5 +7,10 @@ engine = create_engine(
     echo=True 
 )
 
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+Base = declarative_base()
+
 def init_db():
-    SQLModel.metadata.create_all(engine)
+    from app.models.task import Task
+    Base.metadata.create_all(bind=engine)
